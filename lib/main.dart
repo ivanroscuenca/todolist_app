@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: MyHomePage(),
     );
   }
@@ -28,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
         String newTodo = '';
 
         return AlertDialog(
-          title: Text('Enter new task below:'),
+          title: const Text('Enter new task below:'),
           content: TextField(
             onChanged: (value) {
               newTodo = value;
@@ -36,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -48,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
                 Navigator.of(context).pop();
               },
-              child: Text('Submit'),
+              child: const Text('Submit'),
             ),
           ],
         );
@@ -59,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('To do List')),
+      appBar: AppBar(title: const Text('To do List')),
       body: ListView.builder(
         itemCount: _todos.length,
         itemBuilder: (context, index) {
@@ -85,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _addTodo,
         tooltip: 'Add Task',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
